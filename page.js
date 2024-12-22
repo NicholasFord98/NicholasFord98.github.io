@@ -9,8 +9,9 @@ const routePathnames = {
   SE_CAPSTONE: "/Dungeon-Explorer-Info",
 };
 
+// TODO prevent loading directly into any page except home
 const routes = [
-  { path: routePathnames.HOME, page: loadHomePage },
+  { path: routePathnames.HOME, page: initialLoad },
   { path: routePathnames.RESUME, page: () => loadStaticContent("RESUME") },
   { path: routePathnames.CS_CAPSTONE, page: () => loadStaticContent("CS_CAPSTONE") },
   { path: routePathnames.SE_CAPSTONE, page: () => loadStaticContent("SE_CAPSTONE") },
@@ -42,6 +43,17 @@ function route(pathname, hash) {
   }
 }
 
+// sideNav functionality
+function openNav() {
+  root.style.marginLeft = "250px";
+  document.getElementById("mainMenuContainer").style.display = "block";
+}
+
+function closeNav() {
+  root.style.marginLeft = "0";
+  document.getElementById("mainMenuContainer").style.display = "none";
+}
+
 // Page loading functions
 async function loadStaticContent(pageName) {
   // const pageNames prevents loading arbitrary files (sanity checking)
@@ -56,10 +68,15 @@ async function loadStaticContent(pageName) {
   const response = await fetch(page, { cache: "no-store" });
   root.innerHTML = "";
   root.innerHTML = await response.text();
+  closeNav();
 }
 
-async function loadHomePage() {
+async function initialLoad() {
   await loadStaticContent("HOME");
-  const resumeButton = document.getElementById("resumeButton");
-  resumeButton.onclick = () => loadStaticContent("RESUME");
+  document.getElementById("showNavButton").onclick = openNav;
+  document.getElementById("closeNavButton").onclick = closeNav;
+  document.getElementById("homeNavButton").onclick = () => loadStaticContent("HOME");
+  document.getElementById("resumeNavButton").onclick = () => loadStaticContent("RESUME");
+  document.getElementById("csCapstoneNavButton").onclick = () => loadStaticContent("CS_CAPSTONE");
+  document.getElementById("seCapstoneNavButton").onclick = () => loadStaticContent("SE_CAPSTONE");
 }

@@ -25,6 +25,43 @@ red: #ff3e3e; darker: #0e2323
   text-align: right;
 }
 
+.sideNav {
+  height: 100%;
+  position: fixed;
+  width: 250px;
+  display: none;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #e2e2e2;
+  color: #161616;
+  overflow-x: hidden;
+  transition: 0.5s;
+  border: 2px solid;
+  border-color: #161616;
+  border-radius: 6px;
+}
+
+.sideNav a {
+  text-decoration: none;
+  color: #161616;
+  display: block;
+  border: none;
+  font-size: 20px;
+  padding: 4px 0 0 24px;
+}
+
+.sideNav a:visited {
+  color: #161616;
+}
+
+.sideNav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  margin-left: 50px;
+}
+
 hr {
   width: 80%;
 }
@@ -61,6 +98,10 @@ button:hover {
   border-radius: 6px;
 }
 
+@media screen and (max-height: 450px) {
+  .sideNav a { font-size: 16px }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #161616;
@@ -87,5 +128,19 @@ button:hover {
     background-color: #161616;
     border: 2px solid #e2e2e2;
     border-radius: 6px;
+  }
+
+  .sideNav {
+    background-color: #161616;
+    color: #e2e2e2;
+    border-color: #e2e2e2;
+  }
+
+  .sideNav a {
+    color: #e2e2e2;
+  }
+
+  .sideNav a:visited {
+    color: #e2e2e2;
   }
 }

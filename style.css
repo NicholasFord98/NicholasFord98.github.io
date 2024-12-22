@@ -3,7 +3,7 @@ bg(dark): #161616
 silver: #e2e2e2
 goldish: #f0cf6b
 bluish: #508796; darker: #2e515b
-greenish: #9FFF64
+greenish: #9FFF64; darker: #014816;
 red: #ff3e3e; darker: #0e2323
 */
 
@@ -47,6 +47,20 @@ h2 {
   margin-bottom: 6px;
 }
 
+button {
+  color: #e2e2e2;
+  background-color: #161616;
+  border: 2px solid #161616;
+  border-radius: 6px;
+}
+
+button:hover {
+  color: #161616;
+  background-color: #e2e2e2;
+  border: 2px solid #161616;
+  border-radius: 6px;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #161616;
@@ -59,5 +73,19 @@ h2 {
 
   a:visited {
     color: #0e2323;
+  }
+
+  button {
+    color: #161616;
+    background-color: #e2e2e2;
+    border: 2px solid #e2e2e2;
+    border-radius: 6px;
+  }
+
+  button:hover {
+    color: #e2e2e2;
+    background-color: #161616;
+    border: 2px solid #e2e2e2;
+    border-radius: 6px;
   }
 }

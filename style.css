@@ -7,8 +7,24 @@ greenish: #9FFF64; darker: #014816;
 red: #ff3e3e; darker: #0e2323
 */
 
+.vr {
+  display: flex;
+  color: #161616;
+  border-left: 1px solid;
+}
+
 .sdiv {
   text-align: center;
+}
+
+.cardcontainer {
+  width: 85%;
+  align-content: center;
+  display: inline-flex;
+}
+
+.contactcard {
+  width: 50%;
 }
 
 .tdiv {
@@ -51,10 +67,6 @@ red: #ff3e3e; darker: #0e2323
   padding: 4px 0 0 24px;
 }
 
-.sideNav a:visited {
-  color: #161616;
-}
-
 .sideNav .closebtn {
   position: absolute;
   top: 0;
@@ -71,12 +83,8 @@ body {
   color: #161616;
 }
 
-a:link {
+a, a:visited, a:hover, a:active {
   color: #508796;
-}
-
-a:visited {
-  color: #2e515b
 }
 
 h2 {
@@ -108,12 +116,16 @@ button:hover {
     color: #e2e2e2;
   }
 
-  a:link {
+  a {
     color: #ff3e3e;
   }
 
   a:visited {
-    color: #0e2323;
+    color: #9e2323
+  }
+
+  a:hover, a:active {
+    color: #ff3e3e;
   }
 
   button {
@@ -128,6 +140,10 @@ button:hover {
     background-color: #161616;
     border: 2px solid #e2e2e2;
     border-radius: 6px;
+  }
+
+  .vr {
+    color: #e2e2e2;
   }
 
   .sideNav {

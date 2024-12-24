@@ -54,6 +54,12 @@ function closeNav() {
   document.getElementById("mainMenuContainer").style.display = "none";
 }
 
+function invertNavContainer() {
+  document.querySelectorAll(".bar").forEach((bar) => {
+    bar.classList.toggle("changed");
+  });
+}
+
 // Page loading functions
 async function loadStaticContent(pageName) {
   // const pageNames prevents loading arbitrary files (sanity checking)
@@ -73,7 +79,10 @@ async function loadStaticContent(pageName) {
 
 async function initialLoad() {
   await loadStaticContent("HOME");
-  document.getElementById("showNavButton").onclick = openNav;
+  const navContainer = document.getElementById("showNavContainer");
+  navContainer.onclick = openNav;
+  navContainer.onmouseenter = invertNavContainer;
+  navContainer.onmouseleave = invertNavContainer;
   document.getElementById("closeNavButton").onclick = closeNav;
   document.getElementById("homeNavButton").onclick = () => loadStaticContent("HOME");
   document.getElementById("resumeNavButton").onclick = () => loadStaticContent("RESUME");

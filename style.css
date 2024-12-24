@@ -7,6 +7,29 @@ greenish: #9FFF64; darker: #014816;
 red: #ff3e3e; darker: #0e2323
 */
 
+.barcontainer {
+  width: 23px;
+  align-content: center;
+  background-color: #e2e2e2;
+  padding: 2px 2px 2px 2px;
+  border-radius: 6px;
+}
+  .barcontainer:hover {
+    background-color: #161616;
+  }
+
+.bar {
+  width: 17px;
+  height: 3px;
+  background-color: #161616;
+  margin: 3px 3px 3px 3px;
+  border-radius: 6px;
+}
+
+.changed {
+  background-color: #e2e2e2;
+}
+
 .vr {
   display: flex;
   color: #161616;
@@ -41,6 +64,10 @@ red: #ff3e3e; darker: #0e2323
   text-align: right;
 }
 
+.tdi {
+  padding-left: 24px;
+}
+
 .sideNav {
   height: 100%;
   position: fixed;
@@ -65,6 +92,7 @@ red: #ff3e3e; darker: #0e2323
   border: none;
   font-size: 20px;
   padding: 4px 0 0 24px;
+  cursor: pointer;
 }
 
 .sideNav .closebtn {
@@ -111,7 +139,24 @@ button:hover {
 }
 
 @media (prefers-color-scheme: dark) {
+  .barcontainer {
+    background-color: #161616;
+  }
+
+  .barcontainer:hover {
+    background-color: #e2e2e2;
+  }
+
+  .bar {
+    background-color: #e2e2e2;
+  }
+
+  .changed {
+    background-color: #161616;
+  }
+
   body {
+    padding: 16px 16px 16px 16px;
     background-color: #161616;
     color: #e2e2e2;
   }
@@ -158,5 +203,9 @@ button:hover {
 
   .sideNav a:visited {
     color: #e2e2e2;
+  }
+
+  .sideNav a:hover {
+    color: #8c8c8c;
   }
 }

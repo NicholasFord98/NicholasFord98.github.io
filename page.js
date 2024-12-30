@@ -1,5 +1,6 @@
-const DEV = true;
+const DEV = false;
 const root = document.getElementById("root");
+const WIP_MESSAGE = "Work in progress...";
 
 // Routing
 const routePathnames = {
@@ -53,7 +54,6 @@ function route(pathname, hash, back) {
       window.history.pushState({}, "", path);
     }
   }
-  console.log(localHistory);
 }
 
 window.onpopstate = function(e) {
@@ -63,7 +63,6 @@ window.onpopstate = function(e) {
   }
   localHistory.pop();
   const last = localHistory[localHistory.length - 1];
-  console.log(last);
   route(last.pathname, last.hash, true);
 }
 
@@ -109,6 +108,18 @@ async function initialize() {
   document.getElementById("closeNavButton").onclick = closeNav;
   document.getElementById("homeNavButton").onclick = () => route("HOME");
   document.getElementById("resumeNavButton").onclick = () => route("RESUME");
-  document.getElementById("csCapstoneNavButton").onclick = () => route("CS_CAPSTONE");
-  document.getElementById("seCapstoneNavButton").onclick = () => route("SE_CAPSTONE");
+  //document.getElementById("csCapstoneNavButton").onclick = () => route("CS_CAPSTONE");
+  //document.getElementById("seCapstoneNavButton").onclick = () => route("SE_CAPSTONE");
+  const csCapstoneButton = document.getElementById("csCapstoneNavButton");
+  const seCapstoneButton = document.getElementById("seCapstoneNavButton");
+  csCapstoneButton.disabled = true;
+  csCapstoneButton.onmouseenter = () => changeText(csCapstoneButton, WIP_MESSAGE);
+  csCapstoneButton.onmouseleave = () => changeText(csCapstoneButton, "CS Capstone Project");
+  seCapstoneButton.disabled = true;
+  seCapstoneButton.onmouseenter = () => changeText(seCapstoneButton, WIP_MESSAGE);
+  seCapstoneButton.onmouseleave = () => changeText(seCapstoneButton, "SE Capstone Project");
+}
+
+function changeText(element, newText, color) {
+  element.innerHTML = newText;
 }

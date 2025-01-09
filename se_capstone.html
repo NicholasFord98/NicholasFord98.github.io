@@ -2,11 +2,12 @@
   <!-- TODO image(s) -->
   <h2>Dungeon Explorer</h2>
   <p>
-    Dungeon Explorer is a top-down turn-based ARPG developed using the Godot engine and GDScript.
+    <img src="images/start.png" class="centerImage">
+    <label>Dungeon Explorer is a top-down turn-based ARPG developed using the Godot engine and GDScript.</label>
   </p>
   <p>
-    The main game loop is centered around excursions into the dungeon which reward the player with experience
-    tokens that can be used to upgrade their character at the magic shop in the hub world.
+    <label>The main game loop is centered around excursions into the dungeon which reward the player with experience
+      tokens that can be used to upgrade their character at the magic shop in the hub world.</label>
   </p>
   <p>
     For this project I served as scrum master and developer as well as handling most of the git integration, high-level
@@ -37,39 +38,72 @@
     of these were the Pose, MagicPose, and MagicSpell scenes used by the shadow component.
   </p>
   <h3 id="stats_health_header">Stats and Health tracking</h3>
-  <p>
-    The health component was very small, but serves as a good example/argument for the usefuleness of componentization
-    (the same benefits of any approach to re-using code, like classes).
-    Internally, the component was built to track two integer variables - the maximum health and current health - and
-    send signals (a very useful Godot feature implementing a version of the observer pattern with little effort on the
-    developer's part) on certain thresholds or events, as well as a set of functions allowed the parent to modify these
-    variables. At 50 lines of mostly boilerplate code (including empty lines) this could easily have been included in
-    the player, and any enemies. However, its being a component proved useful when we decided to add a resurrection
-    feature where a player could spend perk points gained through the dungon on revival tokens. To implement the new
-    functionality, we simply added a variable tracking revival tokens as well as a check in the function called whenever
-    health changed to see if any revival tokens were present and act accordingly. Those few lines of code implemented
-    our new feature in the player class, which used the feature, and would allow us to have an enemy using the health
-    component do the same, without breaking existing functionality in either the player or enemies.
-  </p>
-  <p>
-    The stat component functioned very similarly to the health component, with the main difference in implementation
-    being the use of a dictionary internally to track the stats instead of individual variables. We chose to use a
-    dictionary to allow additional flexibility so that enemies and players could use the same component but include or
-    exclude different stats if needed. While the idea could have been useful in a larger scale game, in our game we
-    ultimately decided that the additional complexity proved more detrimental than beneficial - particularly since that
-    flexibility never ended up being used. The system remained in place, since it worked, but would likely have been
-    removed or re-worked had we found a reason to re-implement the component.
-  </p>
+  <table>
+    <tr>
+      <td>
+        <p>
+          The health component was very small, but serves as a good example/argument for the usefuleness of
+          componentization
+          (the same benefits of any approach to re-using code, like classes).
+          Internally, the component was built to track two integer variables - the maximum health and current health -
+          and
+          send signals (a very useful Godot feature implementing a version of the observer pattern with little effort on
+          the
+          developer's part) on certain thresholds or events, as well as a set of functions allowed the parent to modify
+          these
+          variables. At 50 lines of mostly boilerplate code (including empty lines) this could easily have been included
+          in
+          the player, and any enemies. However, its being a component proved useful when we decided to add a
+          resurrection
+          feature where a player could spend perk points gained through the dungon on revival tokens. To implement the
+          new
+          functionality, we simply added a variable tracking revival tokens as well as a check in the function called
+          whenever
+          health changed to see if any revival tokens were present and act accordingly. Those few lines of code
+          implemented
+          our new feature in the player class, which used the feature, and would allow us to have an enemy using the
+          health
+          component do the same, without breaking existing functionality in either the player or enemies.
+        </p>
+        <p>
+          The stat component functioned very similarly to the health component, with the main difference in
+          implementation
+          being the use of a dictionary internally to track the stats instead of individual variables. We chose to use a
+          dictionary to allow additional flexibility so that enemies and players could use the same component but
+          include or
+          exclude different stats if needed. While the idea could have been useful in a larger scale game, in our game
+          we
+          ultimately decided that the additional complexity proved more detrimental than beneficial - particularly since
+          that
+          flexibility never ended up being used. The system remained in place, since it worked, but would likely have
+          been
+          removed or re-worked had we found a reason to re-implement the component.
+        </p>
+      </td>
+      <td>
+        <img src="images/stats_and_health.png">
+      </td>
+    </tr>
+  </table>
   <h3 id="class_header">Class</h3>
-  <p>
-    The player had two options for a class - a pure melee, strength-based character or a mid-ranged mage character. Our
-    ultimate (stretch) goal was to give mages more than one spell, granting them greater utility than a melee character
-    at the cost of damage and/or health, but a combination of time and artistic constraints (not a one of us could draw)
-    kept us from implementing the full system. As it is, the melee character has a simple sword swing attack which
-    requires the player to be right next to an enemy. A mage, however, has a magical projectile that flies off the sword
-    during a swing and travels several squares forward, damaging any enemy it comes into contact with.
-  </p>
+  <table>
+    <tr>
+      <td><img src="images/character_select.png"></td>
+      <td>
+        The player had two options for a class - a pure melee, strength-based character or a mid-ranged mage character.
+        Our ultimate (stretch) goal was to give mages more than one spell, granting them greater utility than a melee
+        character at the cost of damage and/or health, but a combination of time and artistic constraints (not a one of
+        us could draw) kept us from implementing the full system. As it is, the melee character has a simple sword swing
+        attack which requires the player to be right next to an enemy. A mage, however, has a magical projectile that
+        flies off the sword during a swing and travels several squares forward, damaging any enemy it comes into contact
+        with.</label>
+      </td>
+    </tr>
+  </table>
   <h3 id="shadow_animations_header">Shadow Animation</h3>
+  <img src="images/melee_shadow_down.png">
+  <div class="imageSeparator"></div>
+  <img src="images/mage_shadow_down.png">
   <p>
     If we took this game farther in development and attempted to market it, this would be one of our unique
     features/selling points that set our game apart.
@@ -84,6 +118,9 @@
     animation facing the appropriate direction. For mages, a sprite would also appear representing the final/fadout
     position for the magical arc attack.
   </p>
+  <img src="images/melee_shadow_side.png">
+  <div class="imageSeparator"></div>
+  <img src="images/mage_shadow_side.png">
   <p>
     This system was implemented using instantiable objects called 'poses' which the shadow component would place at the
     player's location when the appropriate conditions were met. For melee characters all poses could be represented with

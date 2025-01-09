@@ -108,15 +108,17 @@ async function initialize() {
   document.getElementById("homeNavButton").onclick = () => route("HOME");
   document.getElementById("resumeNavButton").onclick = () => route("RESUME");
   //document.getElementById("csCapstoneNavButton").onclick = () => route("CS_CAPSTONE");
-  //document.getElementById("seCapstoneNavButton").onclick = () => route("SE_CAPSTONE");
+  document.getElementById("seCapstoneNavButton").onclick = () => route("SE_CAPSTONE");
   const csCapstoneButton = document.getElementById("csCapstoneNavButton");
   const seCapstoneButton = document.getElementById("seCapstoneNavButton");
   csCapstoneButton.disabled = true;
   csCapstoneButton.onmouseenter = () => changeText(csCapstoneButton, WIP_MESSAGE);
   csCapstoneButton.onmouseleave = () => changeText(csCapstoneButton, "CS Capstone Project");
+  /*
   seCapstoneButton.disabled = true;
   seCapstoneButton.onmouseenter = () => changeText(seCapstoneButton, WIP_MESSAGE);
   seCapstoneButton.onmouseleave = () => changeText(seCapstoneButton, "SE Capstone Project");
+  */
 }
 
 function changeText(element, newText, color) {

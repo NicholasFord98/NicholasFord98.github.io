@@ -7,6 +7,11 @@ greenish: #9FFF64; darker: #014816;
 red: #ff3e3e; darker: #0e2323
 */
 
+.imageSeparator {
+  display: inline-block;
+  width: 5%;
+}
+
 .barcontainer {
   width: 23px;
   align-content: center;
@@ -14,9 +19,26 @@ red: #ff3e3e; darker: #0e2323
   padding: 2px 2px 2px 2px;
   border-radius: 6px;
 }
-  .barcontainer:hover {
-    background-color: #161616;
-  }
+
+.barcontainer:hover {
+  background-color: #161616;
+}
+
+.centerImage {
+  display: block;
+  max-width: 40%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inlineImage {
+  max-width: 50%;
+  height: auto;
+}
+
+.inlineText {
+}
 
 .bar {
   width: 17px;

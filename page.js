@@ -4,10 +4,10 @@ const WIP_MESSAGE = "Work in progress...";
 
 // Routing
 const routePathnames = {
-  HOME: "/",
-  RESUME: "/Resume",
-  CS_CAPSTONE: "/Spend-Sense-Info",
-  SE_CAPSTONE: "/Dungeon-Explorer-Info",
+  HOME: "/home",
+  RESUME: "/resume",
+  CS_CAPSTONE: "/spend-sense-info",
+  SE_CAPSTONE: "/dungeon-explorer-info",
 };
 
 const routes = [
@@ -18,10 +18,10 @@ const routes = [
 ];
 
 const pageNames = {
-  HOME: "/home.html",
-  RESUME: "/resume.html",
-  CS_CAPSTONE: "/cs_capstone.html",
-  SE_CAPSTONE: "/se_capstone.html",
+  HOME: "internal_pages/home.html",
+  RESUME: "internal_pages/resume.html",
+  CS_CAPSTONE: "internal_pages/cs_capstone.html",
+  SE_CAPSTONE: "internal_pages/se_capstone.html",
 };
 
 const localHistory = [];
@@ -44,7 +44,7 @@ function route(pathname, hash, back) {
     }
     if (!back) {
       localHistory.push({ pathname: pathname, hash: hash });
-      window.history.pushState({}, "", pageNames[pathname]);
+      window.history.pushState({}, "", path);
     }
   } else {
     routes[0].page();

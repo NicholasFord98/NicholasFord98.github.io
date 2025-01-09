@@ -10,7 +10,6 @@ const routePathnames = {
   SE_CAPSTONE: "/Dungeon-Explorer-Info",
 };
 
-// TODO prevent loading directly into any page except home
 const routes = [
   { path: routePathnames.HOME, page: () => loadStaticContent("HOME") },
   { path: routePathnames.RESUME, page: () => loadStaticContent("RESUME") },
